@@ -3,6 +3,18 @@ name: needs
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: '배포 환경'
+        required: true
+        default: 'main'
+        type: choice
+        options: [main]
+      version:
+        description: '배포 버전'
+        required: false
+        default: 'latest'
 
 jobs:
   test:
