@@ -20,7 +20,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "테스트 실행"
+      - name: Docker Hub 로그인
+        run: echo "${{ secrets.DOCKER_PASSWORD }}"  "${{ secrets.DOCKER_USERNAME }}"
   build:
     needs: test
     runs-on: ubuntu-latest
